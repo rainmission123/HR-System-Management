@@ -690,6 +690,7 @@
     </div>
 <!-- End Page-content -->
 @section('script')
+    <script src="{{ URL::to('assets/libs/vanilla-calendar-pro/build/vanilla-calendar.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/pages/dashboards-hr.init.js') }}"></script>
 @endsection
 @endsection

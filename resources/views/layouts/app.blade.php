@@ -2,20 +2,20 @@
 <html lang="en" class="light scroll-smooth group" data-layout="vertical" data-sidebar="light" data-sidebar-size="lg" data-mode="light" data-topbar="light" data-skin="default" data-navbar="sticky" data-content="fluid" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Sign In | HR System - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta content="Minimal Admin & Dashboard Template" name="description">
+    <title>Sign In | HR System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta content="HR management dashboard" name="description">
     <meta content="HR System" name="author">
     <!-- App favicon -->
         <link rel="icon" type="image/png" href="{{ URL::to('assets/images/logo-dark.png') }}">
     <!-- Layout config Js -->
     <script src="{{ URL::to('assets/js/layout.js') }}"></script>
-    <!-- StarCode CSS -->
-    <link rel="stylesheet" href="{{ URL::to('assets/css/starcode2.css') }}">
+    <!-- HR System CSS -->
+    <link rel="stylesheet" href="{{ URL::to('assets/css/hr-system.css') }}">
     
 </head>
 
-<body class="flex items-center justify-center min-h-screen py-16 lg:py-10 bg-slate-50 dark:bg-zink-800 dark:text-zink-100 font-public">
+<body class="flex items-center justify-center min-h-screen px-4 py-8 sm:py-16 lg:py-10 bg-slate-50 dark:bg-zink-800 dark:text-zink-100 font-public">
     <div class="relative">
         <div class="absolute hidden opacity-50 ltr:-left-16 rtl:-right-16 -top-10 md:block">
             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 125 316" width="125" height="316">
@@ -65,7 +65,7 @@
     <script src="{{ URL::to('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ URL::to('assets/libs/prismjs/prism.js') }}"></script>
     <script src="{{ URL::to('assets/libs/lucide/umd/lucide.js') }}"></script>
-    <script src="{{ URL::to('assets/js/starcode.bundle.js') }}"></script>
+    <script src="{{ URL::to('assets/js/hr-system.bundle.js') }}"></script>
     <script src="{{ URL::to('assets/js/pages/auth-login.init.js') }}"></script>
     @yield('script')
 </body>

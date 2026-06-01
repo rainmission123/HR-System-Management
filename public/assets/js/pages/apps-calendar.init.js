@@ -1,8 +1,8 @@
 // /*
-// Template Name: tailwik - Admin & Dashboard Template
-// Author: StarCode Kh
-// Website: https://StarCode Kh.in/
-// Contact: StarCode Kh@gmail.com
+// Template Name: HR System
+// Author: HR System
+// Website: https://HR System.in/
+// Contact: HR System@gmail.com
 // File: Calendar init js
 // */
 

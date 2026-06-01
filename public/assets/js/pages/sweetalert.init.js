@@ -1,9 +1,9 @@
 /*
-Template Name: StarCode & Dashboard Template
-Author: StarCode Kh
+Template Name: HR System & Dashboard Template
+Author: HR System
 Version: 1.1.0
-Website: https://StarCode Kh.in/
-Contact: StarCode Kh@gmail.com
+Website: https://HR System.in/
+Contact: HR System@gmail.com
 File: sweetalert.init.js */
 
 //Basic
@@ -214,7 +214,7 @@ if (document.getElementById("custom-html-alert"))
             title: '<i>HTML</i> <u>example</u>',
             icon: 'info',
             html: 'You can use <b>bold text</b>, ' +
-                '<a href="//StarCode Kh.in/">links</a> ' +
+                '<a href="//HR System.in/">links</a> ' +
                 'and other HTML tags',
             showCloseButton: true,
             showCancelButton: true,

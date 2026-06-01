@@ -11,7 +11,7 @@
                     <i data-lucide="log-out" class="mx-auto text-purple-500 size-6 fill-purple-100"></i>
                 </div>
                 <h4 class="mb-2 text-custom-500 dark:text-custom-500">You are Logged Out</h4>
-                <p class="mb-8 text-slate-500 dark:text-zink-200">Thank you for using starcode admin template</p>
+                <p class="mb-8 text-slate-500 dark:text-zink-200">Thank you for using HR System admin template</p>
             </div>
             <a href="{{ route('login') }}" class="w-full text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</a>
         </div>

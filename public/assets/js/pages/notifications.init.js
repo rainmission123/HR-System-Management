@@ -1,7 +1,7 @@
 /*
-Template Name: StarCode & Dashboard Template
-Author: StarCode Kh
-Website: https://StarCode Kh.in/
-Contact: StarCode Kh@gmail.com
+Template Name: HR System & Dashboard Template
+Author: HR System
+Website: https://HR System.in/
+Contact: HR System@gmail.com
 File: Notifications init js
 */

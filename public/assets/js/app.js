@@ -1,6 +1,6 @@
 /*
-Template Name: StarCode & Dashboard Template
-Author: StarCode Kh
+Template Name: HR System & Dashboard Template
+Author: HR System
 Version: 1.1.0
 Website: https://souysoeng.com/
 Contact: souysoeng.kh@gmail.com

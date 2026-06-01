@@ -1,9 +1,9 @@
 
 /*
-Template Name: StarCode & Dashboard Template
-Author: StarCode Kh
-Website: https://StarCode Kh.in/
-Contact: starcodekh@gmail.com
+Template Name: HR System & Dashboard Template
+Author: HR System
+Website: https://HR System.in/
+Contact: HR Systemkh@gmail.com
 File: apps hr employee init js
 */
 
@@ -128,7 +128,7 @@ var employeeList = [
         "Name": "Willie Torres",
         "img": "assets/images/users/user-1.jpg",
         "Role": "Nuxt JS Developer",
-        "Email": "willie@StarCode.com",
+        "Email": "willie@HR System.com",
         "Phone": "070 3715 3689",
         "Country": "United States",
         "Experience": "3 Year",
@@ -140,7 +140,7 @@ var employeeList = [
         "Name": "Patricia Garcia",
         "img": "assets/images/users/user-2.jpg",
         "Role": "ASP.Net Developer",
-        "Email": "PatriciaJGarcia@StarCode.com",
+        "Email": "PatriciaJGarcia@HR System.com",
         "Phone": "077 7317 7572",
         "Country": "Brazil",
         "Experience": "0.5 Year",
@@ -152,7 +152,7 @@ var employeeList = [
         "Name": "Tonya Johnson",
         "img": "assets/images/users/user-3.jpg",
         "Role": "Project Manager",
-        "Email": "TonyaEJohnson@StarCode.com",
+        "Email": "TonyaEJohnson@HR System.com",
         "Phone": "079 2383 2340",
         "Country": "Denmark",
         "Experience": "0 Year",
@@ -164,7 +164,7 @@ var employeeList = [
         "Name": "Jose White",
         "img": "assets/images/users/user-4.jpg",
         "Role": "React Developer",
-        "Email": "ameida@StarCode.com",
+        "Email": "ameida@HR System.com",
         "Phone": "03476 56 14 12",
         "Country": "Philippines",
         "Experience": "1.5 Year",
@@ -176,7 +176,7 @@ var employeeList = [
         "Name": "Juliette Fecteau",
         "img": "assets/images/users/user-1.jpg",
         "Role": "Sr. Angular Developer",
-        "Email": "JulietteFecteau@StarCode.com",
+        "Email": "JulietteFecteau@HR System.com",
         "Phone": "07231 96 25 88",
         "Country": "Belgium",
         "Experience": "1.9 Year",
@@ -188,7 +188,7 @@ var employeeList = [
         "Name": "Jonas Frederiksen",
         "img": "assets/images/users/user-2.jpg",
         "Role": "Team Leader",
-        "Email": "jonas@StarCode.com",
+        "Email": "jonas@HR System.com",
         "Phone": "61 53 62 05",
         "Country": "France",
         "Experience": "2.9 Year",
@@ -200,7 +200,7 @@ var employeeList = [
         "Name": "Kim Broberg",
         "img": "assets/images/users/user-4.jpg",
         "Role": "UI / UX Designer",
-        "Email": "KimBroberg@StarCode.com",
+        "Email": "KimBroberg@HR System.com",
         "Phone": "040 382 2096",
         "Country": "Finland",
         "Experience": "1.2 Year",
@@ -212,7 +212,7 @@ var employeeList = [
         "Name": "Nancy Reynolds",
         "img": "assets/images/users/user-1.jpg",
         "Role": "Web Designer",
-        "Email": "NancyM@StarCode.com",
+        "Email": "NancyM@HR System.com",
         "Phone": "0391 13 79 21",
         "Country": "Germany",
         "Experience": "0.9 Year",
@@ -224,7 +224,7 @@ var employeeList = [
         "Name": "Thomas Hatfield",
         "img": "assets/images/users/user-2.jpg",
         "Role": "VueJs Developer",
-        "Email": "thomas@StarCode.com",
+        "Email": "thomas@HR System.com",
         "Phone": "0911 47 65 49",
         "Country": "Mexico",
         "Experience": "1.6 Year",
@@ -236,7 +236,7 @@ var employeeList = [
         "Name": "Holly Kavanaugh",
         "img": "assets/images/users/user-3.jpg",
         "Role": "Laravel Developer",
-        "Email": "HollyKavanaugh@StarCode.com",
+        "Email": "HollyKavanaugh@HR System.com",
         "Phone": "819 947 5846",
         "Country": "Canada",
         "Experience": "2.3 Year",
@@ -248,7 +248,7 @@ var employeeList = [
         "Name": "Kim Broberg",
         "img": "assets/images/users/user-4.jpg",
         "Role": "UI / UX Designer",
-        "Email": "KimBroberg@StarCode.com",
+        "Email": "KimBroberg@HR System.com",
         "Phone": "040 382 2096",
         "Country": "Finland",
         "Experience": "1.2 Year",
@@ -260,7 +260,7 @@ var employeeList = [
         "Name": "Juliette Fecteau",
         "img": "assets/images/users/user-1.jpg",
         "Role": "Sr. Angular Developer",
-        "Email": "JulietteFecteau@StarCode.com",
+        "Email": "JulietteFecteau@HR System.com",
         "Phone": "07231 96 25 88",
         "Country": "Belgium",
         "Experience": "1.9 Year",

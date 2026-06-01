@@ -1,9 +1,9 @@
 /*
-Template Name: StarCode & Dashboard Template
-Author: StarCode Kh
+Template Name: HR System & Dashboard Template
+Author: HR System
 Version: 1.1.0
-Website: https://StarCode Kh.in/
-Contact: StarCode Kh@gmail.com
+Website: https://HR System.in/
+Contact: HR System@gmail.com
 File: Layout Js File
 */
 

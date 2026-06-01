@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="mb-0 w-screen lg:mx-auto lg:w-[500px] card shadow-lg border-none shadow-slate-100 relative">
-        <div class="!px-10 !py-12 card-body">
+    <div class="mb-0 w-full max-w-[500px] mx-auto card shadow-lg border-none shadow-slate-100 relative">
+        <div class="!px-5 sm:!px-10 !py-8 sm:!py-12 card-body">
             <a href="#!">
                 <img src="assets/images/logo-light.png" alt="" class="hidden h-22 mx-auto dark:block">
                 <img src="assets/images/logo-dark.png" alt="" class="block h-22 mx-auto dark:hidden">
@@ -9,7 +9,7 @@
 
             <div class="mt-8 text-center">
                 <h4 class="mb-1 text-custom-500 dark:text-custom-500">Welcome Back !</h4>
-                <p class="text-slate-500 dark:text-zink-200">Sign in to continue to Starcode.</p>
+                <p class="text-slate-500 dark:text-zink-200">Sign in to continue to HR System.</p>
             </div>
 
             <form action="{{ route('login') }}" class="mt-10" id="" method="POST">

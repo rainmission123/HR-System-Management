@@ -113,7 +113,7 @@
                         </div>
                         <div class="lg:col-span-12 2xl:col-span-2">
                             <div class="flex gap-2 2xl:justify-end">
-                                <a href="mailto:StarCode Kh@gmail.com" class="flex items-center justify-center size-[37.5px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20"><i data-lucide="mail" class="size-4"></i></a>
+                                <a href="mailto:HR System@gmail.com" class="flex items-center justify-center size-[37.5px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20"><i data-lucide="mail" class="size-4"></i></a>
                                 <button type="button" class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Hire Us</button>
                     
                                 <div class="relative dropdown">
@@ -220,11 +220,11 @@
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Website</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200"><a href="http://StarCode Kh.in/" target="_blank" class="text-custom-500">www.starcodekh.com</a></td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200"><a href="http://HR System.in/" target="_blank" class="text-custom-500">www.HR Systemkh.com</a></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Email</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">paula@StarCode Kh.com</td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">paula@HR System.com</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Location</th>
@@ -280,7 +280,7 @@
                                     <td class="px-3.5 py-2.5 border-y border-transparent">
                                         <span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent">Docs</span>
                                     </td>
-                                    <td class="px-3.5 py-2.5 border-y border-transparent">starcode Docs File</td>
+                                    <td class="px-3.5 py-2.5 border-y border-transparent">HR System Docs File</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">2.5MB</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">15 Feb, 2023</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">Admin</td>
@@ -303,10 +303,10 @@
                                     <td class="px-3.5 py-2.5 border-y border-transparent">
                                         <span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent">PSD</span>
                                     </td>
-                                    <td class="px-3.5 py-2.5 border-y border-transparent">starcode Design Kit.psd</td>
+                                    <td class="px-3.5 py-2.5 border-y border-transparent">HR System Design Kit.psd</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">234.87 MB</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">29 Jan, 2023</td>
-                                    <td class="px-3.5 py-2.5 border-y border-transparent">StarCode Kh</td>
+                                    <td class="px-3.5 py-2.5 border-y border-transparent">HR System</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent"><span class="ppx-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Successful</span></td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">
                                         <div class="flex items-center justify-end gap-2">
@@ -372,10 +372,10 @@
                                     <td class="px-3.5 py-2.5 border-y border-transparent">
                                         <span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent">MP4</span>
                                     </td>
-                                    <td class="px-3.5 py-2.5 border-y border-transparent">starcode Guide Video.mp4</td>
+                                    <td class="px-3.5 py-2.5 border-y border-transparent">HR System Guide Video.mp4</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">149.33 MB</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">12 Nov, 2023</td>
-                                    <td class="px-3.5 py-2.5 border-y border-transparent">StarCode Kh</td>
+                                    <td class="px-3.5 py-2.5 border-y border-transparent">HR System</td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent"><span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-yellow-100 border-transparent text-yellow-500 dark:bg-yellow-500/20 dark:border-transparent">Pending</span></td>
                                     <td class="px-3.5 py-2.5 border-y border-transparent">
                                         <div class="flex items-center justify-end gap-2">
@@ -498,7 +498,7 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <h6 class="mb-1 text-16"><a href="#!">Business Template - UI/UX design</a></h6>
+                                    <h6 class="mb-1 text-16"><a href="#!">Business Process - UI/UX design</a></h6>
                                     <p class="text-slate-500 dark:text-zink-200">UX design process is iterative and non-linear, includes a lot of research.</p>
                                 </div>
                                 <div class="flex w-full gap-3 mt-6 text-center divide-x divide-slate-200 dark:divide-zink-500 rtl:divide-x-reverse">
@@ -584,7 +584,7 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <h6 class="mb-1 text-16"><a href="#!">starcode Design</a></h6>
+                                    <h6 class="mb-1 text-16"><a href="#!">HR System Design</a></h6>
                                     <p class="text-slate-500 dark:text-zink-200">Drawing created with Microsoft Expression Design, a drawing and design program for Windows.</p>
                                 </div>
                                 <div class="flex w-full gap-3 mt-6 text-center divide-x divide-slate-200 dark:divide-zink-500 rtl:divide-x-reverse">
@@ -831,7 +831,7 @@
                                     </div>
                                     <a href="#!"><h4 class="mt-4 mb-2 font-semibold text-16">Ralaphe Flores </h4></a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">floral12@starcode.com</p>
+                                        <p class="mb-1">floral12@HR System.com</p>
                                         <p>+213 617 219 6245</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 1.5 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $463.42 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -855,7 +855,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">James Lash </h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">jameslash@starcode.com</p>
+                                        <p class="mb-1">jameslash@HR System.com</p>
                                         <p>+210 85 383 2388</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 0.5 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $701.77 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -879,7 +879,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Angus Garnsey</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">angusgarnsey@starcode.com</p>
+                                        <p class="mb-1">angusgarnsey@HR System.com</p>
                                         <p>+210 41521 1325</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 0.7 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $478.32 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -903,7 +903,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Matilda Marston</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">matildamarston@starcode.com</p>
+                                        <p class="mb-1">matildamarston@HR System.com</p>
                                         <p>+210 082 288 1065</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 1 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $120.37 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -927,7 +927,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Zachary Benjamin</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">zacharybenjamin@starcode.com</p>
+                                        <p class="mb-1">zacharybenjamin@HR System.com</p>
                                         <p>+120 348 9730 237</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 0 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $89.99 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -951,7 +951,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Ruby Chomley</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">rubychomley@starcode.com</p>
+                                        <p class="mb-1">rubychomley@HR System.com</p>
                                         <p>+120 1234 56789</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 0.2 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $214.82 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -975,7 +975,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Jesse Edouardy</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">jessedouard@starcode.com</p>
+                                        <p class="mb-1">jessedouard@HR System.com</p>
                                         <p>+87 044 017 3869</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 1.7 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $278.96 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>
@@ -999,7 +999,7 @@
                                         <h4 class="mt-4 mb-2 font-semibold text-16">Xavier Bower</h4>
                                     </a>
                                     <div class="text-slate-500 dark:text-zink-200">
-                                        <p class="mb-1">xavierbower@starcode.com</p>
+                                        <p class="mb-1">xavierbower@HR System.com</p>
                                         <p>+159 98765 32451</p>
                                         <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">Exp. : 6.7 years</p>
                                         <h4 class="text-15 text-custom-500">Salary : $901.94 <span class="text-xs font-normal text-slate-500 dark:text-zink-200">/ Month<span></span></span></h4>

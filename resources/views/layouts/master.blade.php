@@ -2,18 +2,18 @@
 <html lang="en" class="light scroll-smooth group" data-layout="vertical" data-sidebar="light" data-sidebar-size="lg" data-mode="light" data-topbar="light" data-skin="default" data-navbar="sticky" data-content="fluid" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>HR | System - Admin & Dashboard Template</title>
+    <title>HR System - Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta content="Minimal Admin & Dashboard Template" name="description">
-    <meta content="StarCode Kh" name="author">
+    <meta content="HR management dashboard" name="description">
+    <meta content="HR System" name="author">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
     <link rel="icon" type="image/png" href="{{ URL::to('assets/images/logo-dark.png') }}">
     <!-- Layout config Js -->
     <script src="{{ URL::to('assets/js/layout.js') }}"></script>
-    <!-- StarCode CSS -->
-    <link rel="stylesheet" href="{{ URL::to('assets/css/starcode2.css') }}">
-    
+    <!-- HR System CSS -->
+    <link rel="stylesheet" href="{{ URL::to('assets/css/hr-system.css') }}">
+
     <style>
         .invalid-feedback {
             color: red;
@@ -26,6 +26,56 @@
             overflow: hidden;
             margin-bottom: 0px !important;
             font-size: 16px;
+        }
+        .brand-logo-img {
+            max-width: 190px;
+            width: auto;
+            object-fit: contain;
+        }
+        @media (max-width: 767px) {
+            html, body {
+                overflow-x: hidden;
+            }
+            body.mobile-sidebar-open {
+                overflow: hidden;
+            }
+            .app-menu {
+                display: block !important;
+                width: 17rem !important;
+                max-width: 86vw;
+                transform: translateX(-105%);
+                transition: transform .2s ease;
+            }
+            body.mobile-sidebar-open .app-menu {
+                transform: translateX(0);
+            }
+            #sidebar-overlay {
+                position: fixed;
+            }
+            body.mobile-sidebar-open #sidebar-overlay {
+                display: block !important;
+            }
+            #page-topbar {
+                left: 0 !important;
+                right: 0 !important;
+            }
+            .navbar-header {
+                gap: .5rem;
+            }
+            .navbar-header .ms-auto {
+                gap: .25rem !important;
+            }
+            footer {
+                left: 0 !important;
+                height: auto !important;
+                min-height: 3.5rem;
+            }
+            .card-body {
+                padding: 1rem !important;
+            }
+            table {
+                min-width: max-content;
+            }
         }
     </style>
 </head>
@@ -85,18 +135,18 @@
                                 </span>
                             </a>
                         </div>
-        
+
                         <button type="button" class="inline-flex relative justify-center items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-75 ease-linear bg-topbar rounded-md btn hover:bg-slate-100 group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:border-topbar-dark group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:border-topbar-brand group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:dark:border-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[layout=horizontal]:flex group-data-[layout=horizontal]:md:hidden hamburger-icon" id="topnav-hamburger-icon">
                             <i data-lucide="chevrons-left" class="w-5 h-5 group-data-[sidebar-size=sm]:hidden"></i>
                             <i data-lucide="chevrons-right" class="hidden w-5 h-5 group-data-[sidebar-size=sm]:block"></i>
                         </button>
-        
+
                         <div class="relative hidden ltr:ml-3 rtl:mr-3 lg:block group-data-[layout=horizontal]:hidden group-data-[layout=horizontal]:lg:block">
                             <input type="text" class="py-2 pr-4 text-sm text-topbar-item bg-topbar border border-topbar-border rounded pl-8 placeholder:text-slate-400 form-control focus-visible:outline-0 min-w-[300px] focus:border-blue-400 group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:border-topbar-border-dark group-data-[topbar=dark]:placeholder:text-slate-500 group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:border-topbar-border-brand group-data-[topbar=brand]:placeholder:text-blue-300 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:border-zink-500 group-data-[topbar=dark]:dark:text-zink-100" placeholder="Search for ..." autocomplete="off">
                             <i data-lucide="search" class="inline-block size-4 absolute left-2.5 top-2.5 text-topbar-item fill-slate-100 group-data-[topbar=dark]:fill-topbar-item-bg-hover-dark group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:fill-topbar-item-bg-hover-brand group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:dark:fill-zink-600"></i>
                         </div>
-        
-                       
+
+
                         <div class="flex gap-3 ms-auto">
 
                             @php
@@ -247,8 +297,8 @@
                 </div>
             </div>
         </header>
-    
-   
+
+
         <div class="relative min-h-screen group-data-[sidebar-size=sm]:min-h-sm">
             <!-- Page-content -->
             @yield('content')
@@ -259,11 +309,11 @@
                 <div class="group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl w-full">
                     <div class="grid items-center grid-cols-1 text-center lg:grid-cols-2 text-slate-400 dark:text-zink-200 ltr:lg:text-left rtl:lg:text-right">
                         <div>
-                            <script>document.write(new Date().getFullYear())</script> StarCode Kh
+                            <script>document.write(new Date().getFullYear())</script> HR System
                         </div>
                         <div class="hidden lg:block">
                             <div class="ltr:text-right rtl:text-left">
-                                Design & Develop by StarCode Kh
+                                Managed by HR System
                             </div>
                         </div>
                     </div>
@@ -282,7 +332,7 @@
     <div id="customizerButton" drawer-end="" class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow ltr:right-0 rtl:left-0 md:w-96 z-drawer show dark:bg-zink-600">
         <div class="flex justify-between p-4 border-b border-slate-200 dark:border-zink-500">
             <div class="grow">
-                <h5 class="mb-1 text-16">starcode Theme Customizer</h5>
+                <h5 class="mb-1 text-16">HR System Theme Customizer</h5>
                 <p class="font-normal text-slate-500 dark:text-zink-200">Choose your themes & layouts etc.</p>
             </div>
             <div class="shrink-0">
@@ -370,7 +420,7 @@
                         </label>
                         <h5 class="mt-2 text-center text-15">Default</h5>
                     </div>
-            
+
                     <div class="relative">
                         <input id="layoutSkitTwo" name="dataLayoutSkin" class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500" type="radio" value="bordered" checked="">
                         <label class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500" for="layoutSkitTwo">
@@ -395,7 +445,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-6">
                 <!-- data-mode="" -->
                 <h5 class="mb-3 underline capitalize text-15">Light & Dark</h5>
@@ -454,7 +504,7 @@
                     <button type="button" id="sidebarColorFour" name="sidebarColor" value="modern" class="flex items-center justify-center w-10 h-10 border rounded-md border-purple-950 bg-gradient-to-t from-red-400 to-purple-500 group"><i data-lucide="check" class="w-5 h-5 hidden group-[.active]:inline-block text-white"></i></button>
                 </div>
             </div>
-            
+
             <div class="mt-6">
                 <!-- data-topbar="" light, dark, brand, modern-->
                 <h5 class="mb-3 underline capitalize text-15">Topbar Colors</h5>
@@ -464,11 +514,11 @@
                     <button type="button" id="topbarColorThree" name="topbarColor" value="brand" class="flex items-center justify-center w-10 h-10 border rounded-md border-custom-800 bg-custom-800 group"><i data-lucide="check" class="w-5 h-5 hidden group-[.active]:inline-block text-white"></i></button>
                 </div>
             </div>
-            
+
         </div>
         <div class="flex items-center justify-between gap-3 p-4 border-t border-slate-200 dark:border-zink-500">
             <button type="button" id="reset-layout" class="w-full transition-all duration-200 ease-linear text-slate-500 btn bg-slate-200 border-slate-200 hover:text-slate-600 hover:bg-slate-300 hover:border-slate-300 focus:text-slate-600 focus:bg-slate-300 focus:border-slate-300 focus:ring focus:ring-slate-100">Reset</button>
-            <a href="#!" class="w-full text-white transition-all duration-200 ease-linear bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100">Buy Now</a>
+
         </div>
     </div>
 
@@ -478,11 +528,11 @@
     <script src="{{ URL::to('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ URL::to('assets/libs/prismjs/prism.js') }}"></script>
     <script src="{{ URL::to('assets/libs/lucide/umd/lucide.js') }}"></script>
-    <script src="{{ URL::to('assets/js/starcode.bundle.js') }}"></script>
+    <script src="{{ URL::to('assets/js/hr-system.bundle.js') }}"></script>
     <script src="{{ URL::to('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
     <!--apexchart js-->
     <script src="{{ URL::to('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-    
+
     <script src="{{ URL::to('assets/js/datatables/jquery-3.7.0.js') }}"></script>
     <script src="{{ URL::to('assets/js/datatables/data-tables.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/datatables/data-tables.tailwindcss.min.js') }}"></script>
@@ -492,10 +542,36 @@
     <script src="{{ URL::to('assets/js/datatables/pdfmake.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/datatables/buttons.html5.min.js') }}"></script>
     <script src="{{ URL::to('assets/js/datatables/buttons.print.min.js') }}"></script>
-    <script src="{{ URL::to('assets/js/datatables/datatables.init.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ URL::to('assets/js/app.js') }}"></script>
     @yield('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('topnav-hamburger-icon');
+            const overlay = document.getElementById('sidebar-overlay');
+            const closeMobileMenu = () => document.body.classList.remove('mobile-sidebar-open');
+
+            if (menuButton) {
+                menuButton.addEventListener('click', function () {
+                    if (window.innerWidth < 768) {
+                        document.body.classList.toggle('mobile-sidebar-open');
+                    }
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', closeMobileMenu);
+            }
+
+            document.querySelectorAll('.app-menu a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth < 768) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
