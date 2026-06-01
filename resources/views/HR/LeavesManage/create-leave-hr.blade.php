@@ -22,16 +22,16 @@
                     <div class="card">
                         <div class="card-body">
                             <h6 class="mb-4 text-15 grow">Add Leave</h6>
-                            <form id="applyLeave" action="{{ route('hr/create/leave/employee/save') }}" method="POST">
+                            <form id="applyLeave" action="{{ route('hr/create/leave/hr/save') }}" method="POST">
                                 @csrf
                                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-12">
                                     <div class="xl:col-span-6">
                                         <div>
                                             <label for="employeeName" class="inline-block mb-2 text-base font-medium">Employee</label>
-                                            <select name="employee_name" id="employee_name" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices="">
+                                            <select name="employee_id" id="employee_name" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices="">
                                                 <option value="">Select Employee</option>
                                                 @foreach($users as $key => $user)
-                                                    <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                                    <option value="{{ $user->user_id }}" data-employee-id="{{ $user->user_id }}">{{ $user->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -153,6 +153,10 @@
     <script>
         // Define the URL for the AJAX request
         var url = "{{ route('hr/get/information/leave') }}";
+
+        $(document).on('change', '#employee_name', function() {
+            $('#employeeId').val($(this).find(':selected').data('employee-id') || '');
+        });
         
         // Function to handle leave type change
         function handleLeaveTypeChange() {

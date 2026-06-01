@@ -10,8 +10,10 @@ use App\Models\User;
 use App\Models\Leave;
 use App\Models\Holiday;
 use App\Models\Department;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\LeaveInformation;
+use Illuminate\Validation\Rule;
 
 class HRController extends Controller
 {
@@ -101,6 +103,12 @@ class HRController extends Controller
     /** Update Record Employee */
     public function employeeUpdateRecord(Request $request)
     {
+        $request->validate([
+            'id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($request->id)],
+        ]);
+
         try {
             $user = User::find($request->id);
 
@@ -150,8 +158,9 @@ class HRController extends Controller
         try {
             $deleteRecord = User::findOrFail($request->id_delete);
             $deleteRecord->delete();
-            if (!empty($request->del_photo)) {
-                unlink(public_path('assets/images/user/'.$request->del_photo));
+            $photoPath = public_path('assets/images/user/'.$request->del_photo);
+            if (!empty($request->del_photo) && file_exists($photoPath)) {
+                unlink($photoPath);
             }
 
             flash()->success('Delete record successfully :)');
@@ -306,7 +315,7 @@ class HRController extends Controller
     public function viewDetailLeave($staff_id)
     {
         $leaveInformation = LeaveInformation::all();
-        $leaveDetail = Leave::where('staff_id', $staff_id)->first();
+        $leaveDetail = Leave::where('staff_id', $staff_id)->latest()->firstOrFail();
         $leaveDate   = json_decode($leaveDetail->leave_date, true); // Decode JSON to array
         $leaveDay    = json_decode($leaveDetail->leave_day, true); // Decode JSON to array
 
@@ -316,16 +325,70 @@ class HRController extends Controller
     /** leave HR */
     public function leaveHR()
     {
-        return view('HR.LeavesManage.leave-hr');
+        $leaves = Leave::latest()->get();
+        $today = now()->startOfDay();
+        $todayLeaves = $leaves->filter(function ($leave) use ($today) {
+            if ($leave->status !== 'Approved') {
+                return false;
+            }
+
+            try {
+                $from = $leave->date_from ? \Carbon\Carbon::parse($leave->date_from)->startOfDay() : null;
+                $to = $leave->date_to ? \Carbon\Carbon::parse($leave->date_to)->startOfDay() : null;
+
+                return $from && $to && $from->lte($today) && $to->gte($today);
+            } catch (\Exception $e) {
+                return false;
+            }
+        })->count();
+        $pendingLeaves = Leave::where('status', 'Pending')->count();
+        $approvedLeaves = Leave::where('status', 'Approved')->count();
+        $declinedLeaves = Leave::where('status', 'Declined')->count();
+
+        return view('HR.LeavesManage.leave-hr', compact(
+            'leaves',
+            'todayLeaves',
+            'pendingLeaves',
+            'approvedLeaves',
+            'declinedLeaves'
+        ));
     }
 
     /** attendance */
    public function attendance()
     {
         $employees = User::where('role_name', 'Employee')->get();
-        $selectedEmployee = $employees->first();
+        $selectedEmployee = $employees->firstWhere('user_id', request('employee_id')) ?: $employees->first();
+        $attendanceRecords = collect();
+        $attendanceSummary = [
+            'present' => 0,
+            'absent' => 0,
+            'leave' => 0,
+            'work_minutes' => 0,
+            'overtime_minutes' => 0,
+        ];
 
-        return view('HR.Attendance.attendance', compact('employees', 'selectedEmployee'));
+        if ($selectedEmployee) {
+            $attendanceRecords = Attendance::where('user_id', $selectedEmployee->id)
+                ->latest('attendance_date')
+                ->take(30)
+                ->get();
+
+            $attendanceSummary = [
+                'present' => $attendanceRecords->where('status', 'present')->count(),
+                'absent' => $attendanceRecords->where('status', 'absent')->count(),
+                'leave' => $attendanceRecords->where('status', 'leave')->count(),
+                'work_minutes' => $attendanceRecords->sum('work_minutes'),
+                'overtime_minutes' => $attendanceRecords->sum('overtime_minutes'),
+            ];
+        }
+
+        return view('HR.Attendance.attendance', compact(
+            'employees',
+            'selectedEmployee',
+            'attendanceRecords',
+            'attendanceSummary'
+        ));
     }
 
     /** create Leave HR */
@@ -336,10 +399,157 @@ class HRController extends Controller
         return view('HR.LeavesManage.create-leave-hr',compact('users','leaveInformation'));
     }
 
+    /** save leave record created by HR */
+    public function saveRecordLeaveByHR(Request $request)
+    {
+        $request->validate([
+            'employee_id' => 'required|exists:users,user_id',
+            'leave_type' => 'required|string',
+            'date_from'  => 'required',
+            'date_to'    => 'required',
+            'reason'     => 'required|string',
+        ]);
+
+        try {
+            $user = User::where('user_id', $request->employee_id)->firstOrFail();
+
+            Leave::create([
+                'staff_id' => $user->user_id,
+                'employee_name' => $user->name,
+                'leave_type' => $request->leave_type,
+                'remaining_leave' => $request->remaining_leave,
+                'date_from' => $request->date_from,
+                'date_to' => $request->date_to,
+                'number_of_day' => $request->number_of_day,
+                'leave_date' => json_encode($request->leave_date),
+                'leave_day' => json_encode($request->select_leave_day),
+                'status' => 'Approved',
+                'approved_by' => Session::get('name') ?: optional(auth()->user())->name,
+                'reason' => $request->reason,
+            ]);
+
+            flash()->success('Leave created successfully :)');
+            return redirect()->route('hr/leave/hr/page');
+        } catch (\Exception $e) {
+            \Log::error($e);
+            flash()->error('Failed to create leave :)');
+            return redirect()->back()->withInput();
+        }
+    }
+
+    /** approve or decline leave */
+    public function updateLeaveStatus(Request $request)
+    {
+        $request->validate([
+            'leave_id' => 'required|exists:leaves,id',
+            'status' => 'required|in:Approved,Declined,Pending',
+        ]);
+
+        $leave = Leave::findOrFail($request->leave_id);
+        $leave->status = $request->status;
+        $leave->approved_by = $request->status === 'Pending'
+            ? null
+            : (Session::get('name') ?: optional(auth()->user())->name);
+        $leave->save();
+
+        flash()->success('Leave status updated successfully :)');
+        return redirect()->back();
+    }
+
+    /** delete leave */
+    public function deleteLeaveRecord(Request $request)
+    {
+        $request->validate([
+            'leave_id' => 'required|exists:leaves,id',
+        ]);
+
+        Leave::findOrFail($request->leave_id)->delete();
+        flash()->success('Leave deleted successfully :)');
+        return redirect()->back();
+    }
+
     /** attendance Main */
     public function attendanceMain()
     {
-        return view('HR.Attendance.attendance-main');
+        $employees = User::where('role_name', 'Employee')->latest()->get();
+        $month = now()->startOfMonth();
+        $daysInMonth = $month->daysInMonth;
+        $records = Attendance::whereBetween('attendance_date', [
+            $month->toDateString(),
+            $month->copy()->endOfMonth()->toDateString(),
+        ])->get();
+
+        $presentToday = Attendance::whereDate('attendance_date', now()->toDateString())
+            ->where('status', 'present')
+            ->count();
+        $absentToday = Attendance::whereDate('attendance_date', now()->toDateString())
+            ->where('status', 'absent')
+            ->count();
+
+        return view('HR.Attendance.attendance-main', [
+            'employees' => $employees,
+            'daysInMonth' => $daysInMonth,
+            'month' => $month,
+            'attendanceMatrix' => $records->keyBy(function ($record) {
+                return $record->user_id.'-'.$record->attendance_date->format('Y-m-d');
+            }),
+            'totalEmployees' => $employees->count(),
+            'presentToday' => $presentToday,
+            'absentToday' => $absentToday,
+            'workingDays' => now()->daysInMonth,
+        ]);
+    }
+
+    /** mark attendance */
+    public function markAttendance(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'attendance_date' => 'required|date',
+            'status' => 'required|in:present,absent,leave',
+            'check_in' => 'nullable|date_format:H:i',
+            'check_out' => 'nullable|date_format:H:i',
+            'meal_break_minutes' => 'nullable|integer|min:0|max:240',
+            'notes' => 'nullable|string|max:1000',
+        ]);
+
+        $workMinutes = 0;
+        $overtimeMinutes = 0;
+        $mealBreak = (int) ($request->meal_break_minutes ?? 60);
+        $checkInTime = null;
+        $checkOutTime = null;
+
+        if ($request->status === 'present' && $request->check_in && $request->check_out) {
+            $checkIn = \Carbon\Carbon::createFromFormat('H:i', $request->check_in);
+            $checkOut = \Carbon\Carbon::createFromFormat('H:i', $request->check_out);
+            $checkInTime = $request->check_in;
+            $checkOutTime = $request->check_out;
+
+            if ($checkOut->greaterThan($checkIn)) {
+                $workMinutes = max(0, $checkIn->diffInMinutes($checkOut) - $mealBreak);
+                $overtimeMinutes = max(0, $workMinutes - 480);
+            }
+        }
+
+        Attendance::updateOrCreate(
+            [
+                'user_id' => $request->user_id,
+                'attendance_date' => $request->attendance_date,
+            ],
+            [
+                'status' => $request->status,
+                'check_in' => $checkInTime,
+                'check_out' => $checkOutTime,
+                'meal_break_minutes' => $mealBreak,
+                'work_minutes' => $workMinutes,
+                'overtime_minutes' => $overtimeMinutes,
+                'notes' => $request->notes,
+                'marked_by' => Session::get('name') ?: optional(auth()->user())->name,
+            ]
+        );
+
+        flash()->success('Attendance updated successfully :)');
+        return redirect()->back();
     }
 
     /** department */
