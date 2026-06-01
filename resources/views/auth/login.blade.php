@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
-    <div class="mb-0 w-full max-w-[500px] mx-auto card shadow-lg border-none shadow-slate-100 relative">
-        <div class="!px-5 sm:!px-10 !py-8 sm:!py-12 card-body">
+    <div class="mb-0 w-full max-w-[420px] mx-auto card shadow-lg border-none shadow-slate-100 relative">
+        <div class="!px-6 !py-6 card-body">
             <a href="#!">
-                <img src="assets/images/logo-light.png" alt="" class="hidden h-22 mx-auto dark:block">
-                <img src="assets/images/logo-dark.png" alt="" class="block h-22 mx-auto dark:hidden">
+                <img src="{{ URL::to('assets/images/logo-light.png') }}" alt="" class="hidden h-20 mx-auto dark:block">
+                <img src="{{ URL::to('assets/images/logo-dark.png') }}" alt="" class="block h-20 mx-auto dark:hidden">
             </a>
 
-            <div class="mt-8 text-center">
+            <div class="mt-5 text-center">
                 <h4 class="mb-1 text-custom-500 dark:text-custom-500">Welcome Back !</h4>
                 <p class="text-slate-500 dark:text-zink-200">Sign in to continue to HR System.</p>
             </div>
 
-            <form action="{{ route('login') }}" class="mt-10" id="" method="POST">
+            <form action="{{ route('login') }}" class="mt-6" id="" method="POST">
                 @csrf
                 <div class="hidden px-4 py-3 mb-3 text-sm text-green-500 border border-green-200 rounded-md bg-green-50 dark:bg-green-400/20 dark:border-green-500/50" id="successAlert">
                     You have <b>successfully</b> signed in.
@@ -34,11 +34,11 @@
                     </div>
                     <div id="remember-error" class="hidden mt-1 text-sm text-red-500">Please check the "Remember me" before submitting the form.</div>
                 </div>
-                <div class="mt-10">
+                <div class="mt-6">
                     <button type="submit" class="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</button>
                 </div>
 
-                <div class="relative text-center my-9 before:absolute before:top-3 before:left-0 before:right-0 before:border-t before:border-t-slate-200 dark:before:border-t-zink-500">
+                <div class="relative text-center my-6 before:absolute before:top-3 before:left-0 before:right-0 before:border-t before:border-t-slate-200 dark:before:border-t-zink-500">
                     <h5 class="inline-block px-2 py-0.5 text-sm bg-white text-slate-500 dark:bg-zink-600 dark:text-zink-200 rounded relative">Sign In with</h5>
                 </div>
 
@@ -49,7 +49,7 @@
                     <button type="button" class="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 active:text-white active:bg-slate-600 active:border-slate-600"><i data-lucide="github" class="size-4"></i></button>
                 </div>
 
-                <div class="mt-10 text-center">
+                <div class="mt-6 text-center">
                     <p class="mb-0 text-slate-500 dark:text-zink-200">Don't have an account ?
                         <a href="{{ route('register') }}" class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500"> SignUp</a>
                     </p>
