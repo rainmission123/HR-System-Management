@@ -252,7 +252,7 @@
             }, function(data) {
                 if (data.response_code == 200) {
                     $('#remaining_leave').val(data.leave_type);
-                    $('#apply_leave').prop('disabled', data.leave_type <= 0);
+                    $('#apply_leave').prop('disabled', false);
                     if (data.leave_type < 0) {
                         toastr.info('You cannot apply for leave at this time.');
                     }

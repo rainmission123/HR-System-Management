@@ -18,7 +18,10 @@
                     <div class="card-body">
                         <form method="GET" action="{{ route('hr/attendance/page') }}" class="mb-5">
                             <label for="employee_id" class="inline-block mb-2 text-base font-medium">Select Employee</label>
-                            <select class="form-input border-slate-200 focus:outline-none focus:border-custom-500" name="employee_id" id="employee_id" onchange="this.form.submit()">
+                            
+                            <select class="form-input border-slate-200 dark:border-zink-500
+                                dark:text-zink-100 dark:bg-zink-700
+                                focus:outline-none focus:border-custom-500" name="employee_id" id="employee_id" onchange="this.form.submit()">
                                 @foreach($employees as $employee)
                                     <option value="{{ $employee->user_id }}" @selected(optional($selectedEmployee)->user_id === $employee->user_id)>
                                         {{ $employee->name }}
@@ -101,11 +104,14 @@
                             <input type="hidden" name="user_id" value="{{ $selectedEmployee->id }}">
                             <div>
                                 <label class="inline-block mb-2 text-base font-medium">Date</label>
-                                <input type="date" name="attendance_date" value="{{ now()->toDateString() }}" class="form-input border-slate-200 dark:border-zink-500">
+                                <input type="date" name="attendance_date" value="{{ now()->toDateString() }}" class="form-input border-slate-200 dark:border-zink-500
+                                    dark:text-zink-100 dark:bg-zink-700">
                             </div>
                             <div>
                                 <label class="inline-block mb-2 text-base font-medium">Status</label>
-                                <select name="status" class="form-input border-slate-200 dark:border-zink-500">
+                                <select name="status"
+                                    class="form-input border-slate-200 dark:border-zink-500
+                                    dark:text-zink-100 dark:bg-zink-700">
                                     <option value="present">Present</option>
                                     <option value="absent">Absent</option>
                                     <option value="leave">Leave</option>
@@ -113,15 +119,18 @@
                             </div>
                             <div>
                                 <label class="inline-block mb-2 text-base font-medium">Check In</label>
-                                <input type="time" name="check_in" value="08:00" class="form-input border-slate-200 dark:border-zink-500">
+                                <input type="time" name="check_in" value="08:00" class="form-input border-slate-200 dark:border-zink-500
+                                    dark:text-zink-100 dark:bg-zink-700">
                             </div>
                             <div>
                                 <label class="inline-block mb-2 text-base font-medium">Check Out</label>
-                                <input type="time" name="check_out" value="17:00" class="form-input border-slate-200 dark:border-zink-500">
+                                <input type="time" name="check_out" value="17:00" class="form-input border-slate-200 dark:border-zink-500
+                                    dark:text-zink-100 dark:bg-zink-700">
                             </div>
                             <div>
                                 <label class="inline-block mb-2 text-base font-medium">Break</label>
-                                <input type="number" name="meal_break_minutes" value="60" min="0" class="form-input border-slate-200 dark:border-zink-500">
+                                <input type="number" name="meal_break_minutes" value="60" min="0" class="form-input border-slate-200 dark:border-zink-500
+                                    dark:text-zink-100 dark:bg-zink-700">
                             </div>
                             <div class="flex items-end">
                                 <button type="submit" class="w-full text-white btn bg-custom-500 border-custom-500 hover:bg-custom-600">Save</button>

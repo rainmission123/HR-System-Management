@@ -83,10 +83,10 @@
                             <label for="typeSelect" class="inline-block mb-2 text-base font-medium">Type</label>
                             <select name="holiday_type" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices="" data-choices-search-false="" id="typeSelect">
                                 <option value="">-- Select Holiday--</option>
-                                <option value="Restricted Holiday" {{ old('holiday_type') == 'Restricted Holiday' ? 'selected' : '' }}>Restricted Holiday</option>
-                                <option value="Gazetted Holiday" {{ old('holiday_type') == 'Gazetted Holiday' ? 'selected' : '' }}>Gazetted Holiday</option>
-                                <option value="Observance" {{ old('holiday_type') == 'Observance' ? 'selected' : '' }}>Observance</option>
-                                <option value="Season" {{ old('holiday_type') == 'Season' ? 'selected' : '' }}>Season</option>
+                               <option value="Regular Holiday">Regular Holiday</option>
+                                <option value="Special Non-Working Holiday">Special Non-Working Holiday</option>
+                                <option value="Special Working Holiday">Special Working Holiday</option>
+                                <option value="Local Holiday">Local Holiday</option>
                             </select>
                             @error('holiday_type')
                                 <span class="invalid-feedback" role="alert">
@@ -138,10 +138,10 @@
                         <div class="xl:col-span-12">
                             <label for="typeSelect" class="inline-block mb-2 text-base font-medium">Type</label>
                             <select name="holiday_type" id="e_holiday_type" class="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200">
-                                <option value="Restricted Holiday">Restricted Holiday</option>
-                                <option value="Gazetted Holiday">Gazetted Holiday</option>
-                                <option value="Observance">Observance</option>
-                                <option value="Season">Season</option>
+                                <option value="Regular Holiday">Regular Holiday</option>
+                                <option value="Special Non-Working Holiday">Special Non-Working Holiday</option>
+                                <option value="Special Working Holiday">Special Working Holiday</option>
+                                <option value="Local Holiday">Local Holiday</option>
                             </select>
                             @error('holiday_type')
                                 <span class="invalid-feedback" role="alert">
