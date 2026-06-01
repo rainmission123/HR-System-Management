@@ -17,23 +17,23 @@
             </div>
             <div class="grid grid-cols-12 2xl:grid-cols-12 gap-x-5">
                 <div class="col-span-12 md:order-1 xl:col-span-8 2xl:col-span-6">
-                    <h5 class="mb-2">Welcome HR Management System 🎉</h5>
-                    <p class="mb-5 text-slate-500 dark:text-zink-200">The salary of<a href="#!" class="underline text-slate-800 dark:text-zink-50"> HR Management</a> is pending since 05 Dec, 2024. the documentation of the tasks, workflows, and activities that make up a process managed by the HR or People Ops team. <a href="#!" class="text-red-500">Learn More</a></p>
+                    <h5 class="mb-2">Welcome HR Management System</h5>
+                    <p class="mb-5 text-slate-500 dark:text-zink-200">Live summary of employees, departments, holidays, and leave requests for HR operations.</p>
                 </div>
                 <div class="col-span-12 md:order-2 xl:col-span-4 2xl:col-start-9 card">
                     <div class="p-4">
                         <div class="grid grid-cols-3">
                             <div class="px-4 text-center ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500 ltr:last:border-r-0 rtl:last:border-l-0">
-                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="36"></span></h6>
-                                <p class="text-slate-500 dark:text-zink-200">Absent</p>
+                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="{{ $pendingLeaves ?? 0 }}"></span></h6>
+                                <p class="text-slate-500 dark:text-zink-200">Pending</p>
                             </div>
                             <div class="px-4 text-center ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500 ltr:last:border-r-0 rtl:last:border-l-0">
-                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="465"></span></h6>
-                                <p class="text-slate-500 dark:text-zink-200">Attendance</p>
+                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="{{ $approvedLeaves ?? 0 }}"></span></h6>
+                                <p class="text-slate-500 dark:text-zink-200">Approved</p>
                             </div>
                             <div class="px-4 text-center ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500 ltr:last:border-r-0 rtl:last:border-l-0">
-                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="50"></span></h6>
-                                <p class="text-slate-500 dark:text-zink-200">Late</p>
+                                <h6 class="mb-1 font-bold"><span class="counter-value" data-target="{{ $declinedLeaves ?? 0 }}"></span></h6>
+                                <p class="text-slate-500 dark:text-zink-200">Declined</p>
                             </div>
                         </div>
                     </div>
@@ -43,15 +43,15 @@
                         <div class="grid grid-cols-12">
                             <div class="col-span-8 md:col-span-9">
                                 <p class="text-slate-500 dark:text-slate-200">Total Employee</p>
-                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="615">0</span></h5>
+                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="{{ $totalEmployees ?? 0 }}">0</span></h5>
                             </div>
                             <div class="col-span-4 md:col-span-3">
                                 <div id="totalEmployee" data-chart-colors='["bg-custom-500"]' dir="ltr" class="grow apex-charts"></div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 mt-3">
-                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">15%</span> Increase</p>
-                            <p class="text-slate-500 dark:text-slate-200">This Month</p>
+                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">{{ $activeEmployees ?? 0 }}</span> Active</p>
+                            <p class="text-slate-500 dark:text-slate-200">Employees</p>
                         </div>
                     </div>
                 </div>
@@ -59,16 +59,16 @@
                     <div class="card-body">
                         <div class="grid grid-cols-12">
                             <div class="col-span-8 md:col-span-9">
-                                <p class="text-slate-500 dark:text-slate-200">Total Application</p>
-                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="174">0</span></h5>
+                                <p class="text-slate-500 dark:text-slate-200">Pending Leaves</p>
+                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="{{ $pendingLeaves ?? 0 }}">0</span></h5>
                             </div>
                             <div class="col-span-4 md:col-span-3">
                                 <div id="totalApplication" data-chart-colors='["bg-purple-500"]' dir="ltr" class="grow apex-charts"></div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 mt-3">
-                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">26%</span> Increase</p>
-                            <p class="text-slate-500 dark:text-slate-200">This Month</p>
+                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">{{ $approvedLeaves ?? 0 }}</span> Approved</p>
+                            <p class="text-slate-500 dark:text-slate-200">Leaves</p>
                         </div>
                     </div>
                 </div>
@@ -90,16 +90,16 @@
                     <div class="card-body">
                         <div class="grid grid-cols-12">
                             <div class="col-span-8 md:col-span-9">
-                                <p class="text-slate-500 dark:text-slate-200">Hired Candidates</p>
-                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="64">0</span></h5>
+                                <p class="text-slate-500 dark:text-slate-200">Departments</p>
+                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="{{ $departmentsCount ?? 0 }}">0</span></h5>
                             </div>
                             <div class="col-span-4 md:col-span-3">
                                 <div id="hiredCandidates" data-chart-colors='["bg-green-500"]' dir="ltr" class="grow apex-charts"></div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 mt-3">
-                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-red-500">05%</span> Increase</p>
-                            <p class="text-slate-500 dark:text-slate-200">This Month</p>
+                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">{{ $departmentsCount ?? 0 }}</span> Departments</p>
+                            <p class="text-slate-500 dark:text-slate-200">Active</p>
                         </div>
                     </div>
                 </div>
@@ -107,16 +107,16 @@
                     <div class="card-body">
                         <div class="grid grid-cols-12">
                             <div class="col-span-8 md:col-span-9">
-                                <p class="text-slate-500 dark:text-slate-200">Rejected Candidates</p>
-                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="110">0</span></h5>
+                                <p class="text-slate-500 dark:text-slate-200">Holidays</p>
+                                <h5 class="mt-3 mb-4"><span class="counter-value" data-target="{{ $holidaysCount ?? 0 }}">0</span></h5>
                             </div>
                             <div class="col-span-4 md:col-span-3">
                                 <div id="rejectedCandidates" data-chart-colors='["bg-red-500"]' dir="ltr" class="grow apex-charts"></div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 mt-3">
-                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-red-500">16%</span> Increase</p>
-                            <p class="text-slate-500 dark:text-slate-200">This Month</p>
+                            <p class="text-slate-500 dark:text-slate-200 grow"><span class="font-medium text-green-500">{{ $holidaysCount ?? 0 }}</span> Holidays</p>
+                            <p class="text-slate-500 dark:text-slate-200">Listed</p>
                         </div>
                     </div>
                 </div>
@@ -154,162 +154,56 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse($recentEmployees ?? [] as $employee)
+                                    @php
+                                        $statusClass = ($employee->status ?? '') === 'Active'
+                                            ? 'bg-green-100 border-green-200 text-green-500 dark:bg-green-500/20 dark:border-green-500/20'
+                                            : 'bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200';
+                                    @endphp
                                     <tr>
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
                                             <div class="flex items-center h-full">
-                                                <input id="productsCheck1" class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
+                                                <input class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
                                             </div>
                                         </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500"><a href="#!">ST-1001</a></td>
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <div class="bg-green-100 rounded-full size-10 dark:bg-green-500/20 shrink-0">
-                                                    <img src="{{ URL::to('assets/images/avatar-10.png') }}" alt="" class="h-10 rounded-full">
-                                                </div>
-                                                <div class="grow">
-                                                    <h6>Kristen Redden</h6>
-                                                    <p class="text-slate-500 dark:text-zink-200">kredden@gmail.com</p>
-                                                </div>
-                                            </div>
+                                            <a href="{{ URL::to('page/account/'.$employee->user_id) }}">{{ $employee->user_id }}</a>
                                         </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">Designer</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-green-500">Good</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-green-100 border-green-200 text-green-500 dark:bg-green-500/20 dark:border-green-500/20">Active</span>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20"><i data-lucide="trash-2" class="size-4"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex items-center h-full">
-                                                <input id="productsCheck2" class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500"><a href="#!">ST-1002</a></td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <div class="rounded-full size-10 bg-sky-100 dark:bg-sky-500/20 shrink-0">
-                                                    <img src="{{ URL::to('assets/images/avatar-2.png') }}" alt="" class="h-10 rounded-full">
-                                                </div>
-                                                <div class="grow">
-                                                    <h6>Howard George</h6>
-                                                    <p class="text-slate-500 dark:text-zink-200">george@gmail.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">ASP.Net Developer</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-red-500">Low</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-green-100 border-green-200 text-green-500 dark:bg-green-500/20 dark:border-green-500/20">Active</span>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20"><i data-lucide="trash-2" class="size-4"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex items-center h-full">
-                                                <input id="productsCheck3" class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500"><a href="#!">ST-1003</a></td>
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
                                             <div class="flex gap-2">
                                                 <div class="rounded-full size-10 bg-slate-100 dark:bg-zink-600 shrink-0">
-                                                    <img src="{{ URL::to('assets/images/avatar-3.png') }}" alt="" class="h-10 rounded-full">
+                                                    <img src="{{ $employee->avatar ? URL::to('assets/images/'.$employee->avatar) : URL::to('assets/images/user-dummy-img.jpg') }}" alt="" class="h-10 rounded-full">
                                                 </div>
                                                 <div class="grow">
-                                                    <h6>Laura Carlson</h6>
-                                                    <p class="text-slate-500 dark:text-zink-200">carlson15@gmail.com</p>
+                                                    <h6>{{ $employee->name }}</h6>
+                                                    <p class="text-slate-500 dark:text-zink-200">{{ $employee->email }}</p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">React Developer</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-green-500">Good</td>
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">{{ $employee->position ?? $employee->designation ?? 'Employee' }}</td>
+                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-green-500">{{ $employee->department ?? 'General' }}</td>
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-green-100 border-green-200 text-green-500 dark:bg-green-500/20 dark:border-green-500/20">Active</span>
+                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border {{ $statusClass }}">{{ $employee->status ?? 'Active' }}</span>
                                         </td>
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
                                             <div class="flex gap-2">
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20"><i data-lucide="trash-2" class="size-4"></i></a>
+                                                <a href="{{ route('hr/employee/list') }}" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
                                             </div>
                                         </td>
                                     </tr>
+                                    @empty
                                     <tr>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex items-center h-full">
-                                                <input id="productsCheck4" class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500"><a href="#!">ST-1004</a></td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <div class="bg-yellow-100 rounded-full size-10 dark:bg-yellow-500/20 shrink-0">
-                                                    <img src="{{ URL::to('assets/images/avatar-4.png') }}" alt="" class="h-10 rounded-full">
-                                                </div>
-                                                <div class="grow">
-                                                    <h6>Joseph Hawkins</h6>
-                                                    <p class="text-slate-500 dark:text-zink-200">joseph@gmail.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">Angular Developer</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-green-500">Good</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">Disabled</span>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20"><i data-lucide="trash-2" class="size-4"></i></a>
-                                            </div>
+                                        <td colspan="7" class="px-3.5 py-6 text-center border-y border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200">
+                                            No employees yet.
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex items-center h-full">
-                                                <input id="productsCheck5" class="size-4 cursor-pointer bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox">
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500"><a href="#!">ST-1005</a></td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <div class="bg-yellow-100 rounded-full size-10 dark:bg-yellow-500/20 shrink-0">
-                                                    <img src="{{ URL::to('assets/images/avatar-5.png') }}" alt="" class="h-10 rounded-full">
-                                                </div>
-                                                <div class="grow">
-                                                    <h6>Jeremy  Clifford</h6>
-                                                    <p class="text-slate-500 dark:text-zink-200">joseph@gmail.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">UI / UX Designer</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500 text-red-500">Low</td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">Disabled</span>
-                                        </td>
-                                        <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
-                                            <div class="flex gap-2">
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20"><i data-lucide="pencil" class="size-4"></i></a>
-                                                <a href="#!" class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20"><i data-lucide="trash-2" class="size-4"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <div class="flex flex-col items-center mt-5 md:flex-row">
                             <div class="mb-4 grow md:mb-0">
-                                <p class="text-slate-500 dark:text-zink-200">Showing <b>10</b> of <b>19</b> Results</p>
+                                <p class="text-slate-500 dark:text-zink-200">Showing <b>{{ ($recentEmployees ?? collect())->count() }}</b> of <b>{{ $totalEmployees ?? 0 }}</b> Employees</p>
                             </div>
                             <ul class="flex flex-wrap items-center gap-2 shrink-0">
                                 <li>
