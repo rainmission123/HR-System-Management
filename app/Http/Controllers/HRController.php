@@ -328,6 +328,10 @@ class HRController extends Controller
         $leaves = Leave::latest()->get();
         $today = now()->startOfDay();
         $todayLeaves = $leaves->filter(function ($leave) use ($today) {
+            if ($leave->status !== 'Approved') {
+                return false;
+            }
+
             try {
                 $from = $leave->date_from ? \Carbon\Carbon::parse($leave->date_from)->startOfDay() : null;
                 $to = $leave->date_to ? \Carbon\Carbon::parse($leave->date_to)->startOfDay() : null;
@@ -512,10 +516,14 @@ class HRController extends Controller
         $workMinutes = 0;
         $overtimeMinutes = 0;
         $mealBreak = (int) ($request->meal_break_minutes ?? 60);
+        $checkInTime = null;
+        $checkOutTime = null;
 
         if ($request->status === 'present' && $request->check_in && $request->check_out) {
             $checkIn = \Carbon\Carbon::createFromFormat('H:i', $request->check_in);
             $checkOut = \Carbon\Carbon::createFromFormat('H:i', $request->check_out);
+            $checkInTime = $request->check_in;
+            $checkOutTime = $request->check_out;
 
             if ($checkOut->greaterThan($checkIn)) {
                 $workMinutes = max(0, $checkIn->diffInMinutes($checkOut) - $mealBreak);
@@ -530,8 +538,8 @@ class HRController extends Controller
             ],
             [
                 'status' => $request->status,
-                'check_in' => $request->check_in,
-                'check_out' => $request->check_out,
+                'check_in' => $checkInTime,
+                'check_out' => $checkOutTime,
                 'meal_break_minutes' => $mealBreak,
                 'work_minutes' => $workMinutes,
                 'overtime_minutes' => $overtimeMinutes,
