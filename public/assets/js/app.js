@@ -26,11 +26,15 @@ function initLanguage() {
 }
 
 function setLanguage(lang) {
+    if (["en", "fil"].indexOf(lang) === -1) {
+        lang = default_lang;
+    }
+
     if (document.getElementById("header-lang-img")) {
         if (lang == "en") {
             document.getElementById("header-lang-img").src = "/assets/images/flag/us.svg";
-        } else if (lang == "kh") {
-            document.getElementById("header-lang-img").src = "/assets/images/flag/kh.png";
+        } else if (lang == "fil") {
+            document.getElementById("header-lang-img").src = "/assets/images/flag/ph.svg";
         }
         localStorage.setItem("language", lang);
         language = localStorage.getItem("language");
@@ -43,7 +47,7 @@ function getLanguage() {
     language == null ? setLanguage(default_lang) : false;
     var request = new XMLHttpRequest();
     // Instantiating the request object
-    request.open("GET", "assets/lang/" + language + ".json");
+    request.open("GET", "/assets/lang/" + language + ".json");
     // Defining event listener for readystatechange event
     request.onreadystatechange = function () {
         // Check if the request is compete and was successful

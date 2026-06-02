@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <path fill="#0038a8" d="M0 0h900v225H0z"/>
+  <path fill="#ce1126" d="M0 225h900v225H0z"/>
+  <path fill="#fff" d="M0 0l390 225L0 450z"/>
+  <circle cx="135" cy="225" r="34" fill="#fcd116"/>
+  <path fill="#fcd116" d="M135 151l9 50h-18zm0 148l9-50h-18zM61 225l50-9v18zm148 0l-50-9v18zM83 173l42 29-13 13zm104 104l-42-29 13-13zM83 277l29-42 13 13zm104-104l-29 42-13-13zM40 40l18 45-45-18zm0 370l-27-27 45-18zm284-185l-45 18 18-45z"/>
+</svg>

@@ -182,10 +182,10 @@
                                         </h6>
                                     </a>
 
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="kh" title="Khmer">
-                                        <img src="{{ URL::to('assets/images/flag/kh.png') }}" alt="" class="object-cover h-4 rounded-full">
+                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="fil" title="Filipino">
+                                        <img src="{{ URL::to('assets/images/flag/ph.svg') }}" alt="" class="object-cover h-4 rounded-full">
                                         <h6 class="transition-all duration-200 ease-linear font-15medium text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">
-                                            Khmer
+                                            Filipino
                                         </h6>
                                     </a>
                                 </div>

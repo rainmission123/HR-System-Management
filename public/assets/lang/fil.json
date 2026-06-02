@@ -1,0 +1,22 @@
+{
+  "t-menu": "Menu",
+  "t-dashboards": "Mga Dashboard",
+  "t-hr": "HR",
+  "t-hr-management": "Pamamahala ng HR",
+  "t-employees-list": "Listahan ng Empleyado",
+  "t-holidays": "Mga Holiday",
+  "t-leaves-manage": "Pamamahala ng Leave",
+  "t-by-employee": "Ayon sa Empleyado",
+  "t-add-leave-employee": "Magdagdag ng Leave (Empleyado)",
+  "t-by-hr": "Ayon sa HR",
+  "t-add-leave-hr": "Magdagdag ng Leave (HR)",
+  "t-attendance": "Attendance",
+  "t-attendance-hr": "Attendance (HR)",
+  "t-main-attendance": "Main Attendance",
+  "t-department": "Departamento",
+  "t-components": "Mga Page",
+  "t-pages": "Mga Page",
+  "t-account": "Account",
+  "t-settings": "Settings",
+  "t-maintenance": "Maintenance"
+}
