@@ -202,6 +202,27 @@
                             </div>
 
                             <!-- Notification -->
+                            @php
+                                try {
+                                    $pendingLeavesCount = \App\Models\Leave::where('status', 'Pending')->count();
+                                } catch (\Throwable $e) {
+                                    $pendingLeavesCount = 0;
+                                }
+
+                                try {
+                                    $todayAttendanceCount = \App\Models\Attendance::whereDate('attendance_date', now()->toDateString())->count();
+                                } catch (\Throwable $e) {
+                                    $todayAttendanceCount = 0;
+                                }
+
+                                try {
+                                    $activeEmployeesCount = \App\Models\User::where('status', 'Active')->count();
+                                } catch (\Throwable $e) {
+                                    $activeEmployeesCount = 0;
+                                }
+
+                                $notificationCount = $pendingLeavesCount + $todayAttendanceCount;
+                            @endphp
                             <div class="relative flex items-center dropdown h-header">
                                 <button type="button"
                                     class="inline-flex justify-center relative items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-200 ease-linear bg-topbar rounded-md dropdown-toggle btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:text-topbar-item-dark"
@@ -214,6 +235,48 @@
                                         <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-sky-500"></span>
                                     </span>
                                 </button>
+
+                                <div class="absolute z-50 hidden mt-2 ltr:text-left rtl:text-right bg-white rounded-md shadow-md dropdown-menu w-80 dark:bg-zink-600"
+                                    aria-labelledby="notificationDropdown">
+                                    <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-zink-500">
+                                        <h6 class="text-15 text-slate-800 dark:text-zink-50">Notifications</h6>
+                                        <span class="px-2 py-0.5 text-xs rounded-full bg-custom-100 text-custom-500 dark:bg-custom-500/20">
+                                            {{ $notificationCount }} new
+                                        </span>
+                                    </div>
+
+                                    <div class="max-h-80 overflow-y-auto">
+                                        <a href="{{ route('hr/leave/hr/page') }}" class="flex gap-3 px-4 py-3 transition-all duration-200 ease-linear border-b border-slate-100 hover:bg-slate-50 dark:border-zink-500 dark:hover:bg-zink-500">
+                                            <div class="flex items-center justify-center size-9 rounded-md bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20">
+                                                <i data-lucide="calendar-clock" class="size-4"></i>
+                                            </div>
+                                            <div class="grow">
+                                                <h6 class="mb-1 text-sm text-slate-800 dark:text-zink-50">Leave Requests</h6>
+                                                <p class="text-xs text-slate-500 dark:text-zink-200">{{ $pendingLeavesCount }} pending leave request{{ $pendingLeavesCount === 1 ? '' : 's' }} need review.</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="{{ route('hr/attendance/page') }}" class="flex gap-3 px-4 py-3 transition-all duration-200 ease-linear border-b border-slate-100 hover:bg-slate-50 dark:border-zink-500 dark:hover:bg-zink-500">
+                                            <div class="flex items-center justify-center size-9 rounded-md bg-green-100 text-green-600 dark:bg-green-500/20">
+                                                <i data-lucide="clipboard-check" class="size-4"></i>
+                                            </div>
+                                            <div class="grow">
+                                                <h6 class="mb-1 text-sm text-slate-800 dark:text-zink-50">Attendance Today</h6>
+                                                <p class="text-xs text-slate-500 dark:text-zink-200">{{ $todayAttendanceCount }} attendance record{{ $todayAttendanceCount === 1 ? '' : 's' }} marked today.</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="{{ route('hr/employee/list') }}" class="flex gap-3 px-4 py-3 transition-all duration-200 ease-linear hover:bg-slate-50 dark:hover:bg-zink-500">
+                                            <div class="flex items-center justify-center size-9 rounded-md bg-sky-100 text-sky-600 dark:bg-sky-500/20">
+                                                <i data-lucide="users" class="size-4"></i>
+                                            </div>
+                                            <div class="grow">
+                                                <h6 class="mb-1 text-sm text-slate-800 dark:text-zink-50">Employees</h6>
+                                                <p class="text-xs text-slate-500 dark:text-zink-200">{{ $activeEmployeesCount }} active employee{{ $activeEmployeesCount === 1 ? '' : 's' }} in the system.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Settings -->
