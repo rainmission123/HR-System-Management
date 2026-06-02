@@ -28,20 +28,20 @@
                                 @endphp
                             @endif
                             <div class="relative inline-block rounded-full shadow-md size-20 bg-slate-100 profile-user xl:size-28">
-                                <form id="profile-avatar-form" method="POST" action="{{ route('account.avatar') }}" enctype="multipart/form-data">
+                                <form id="profile-avatar-form" method="POST" action="{{ route('account.avatar') }}" enctype="multipart/form-data" class="w-full h-full">
                                     @csrf
                                 @if($profileDetail && !empty($profileDetail->avatar))
                                     <img src="{{ asset('assets/images/'.$profileDetail->avatar) }}"
                                         alt=""
-                                        class="object-cover border-0 rounded-full img-thumbnail user-profile-image">
+                                        class="object-cover w-full h-full border-0 rounded-full img-thumbnail user-profile-image">
                                 @elseif($profileDetail && $profileDetail->avatar === null)
-                                    <div class="flex items-center justify-center font-medium rounded-full size-10 shrink-0 bg-slate-200 text-slate-800 dark:text-zink-50 dark:bg-zink-600">
+                                    <div class="flex items-center justify-center w-full h-full font-medium rounded-full shrink-0 bg-slate-200 text-slate-800 dark:text-zink-50 dark:bg-zink-600">
                                         {{ $initials }}
                                     </div>
                                 @else
                                     <img src="{{ asset('assets/images/'.Session::get('avatar')) }}"
                                         alt=""
-                                        class="object-cover border-0 rounded-full img-thumbnail user-profile-image">
+                                        class="object-cover w-full h-full border-0 rounded-full img-thumbnail user-profile-image">
                                 @endif
                                 <div class="absolute bottom-0 flex items-center justify-center rounded-full size-8 ltr:right-0 rtl:left-0 profile-photo-edit">
                                     <input id="profile-img-file-input" name="avatar" type="file" accept="image/png,image/jpeg,image/webp" class="hidden profile-img-file-input">
