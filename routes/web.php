@@ -139,7 +139,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         Route::post('maintenance/optimize', function () {
             Artisan::call('optimize:clear');
-            Artisan::call('optimize');
+            Artisan::call('cache:clear');
+            Artisan::call('view:clear');
+            Artisan::call('config:clear');
+            Artisan::call('route:clear');
 
             flash()->success('System optimized successfully :)');
             return redirect()->route('maintenance');
