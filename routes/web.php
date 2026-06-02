@@ -2,6 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\HRController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -42,44 +51,79 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     });
 });
 
-Route::group(['namespace' => 'App\Http\Controllers'],function()
-{
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+
     // -------------------------- pages ----------------------//
     Route::controller(AccountController::class)->group(function () {
         Route::get('page/account/{user_id}', 'profileDetail')->middleware('auth');
     });
 
     // -------------------------- hr ----------------------//
-    Route::middleware('auth')->prefix('hr/')->group(function () {
+    Route::middleware('auth')->prefix('hr')->group(function () {
+
         Route::controller(HRController::class)->group(function () {
+
             Route::get('employee/list', 'employeeList')->name('hr/employee/list');
             Route::post('employee/save', 'employeeSaveRecord')->name('hr/employee/save');
             Route::post('employee/update', 'employeeUpdateRecord')->name('hr/employee/update');
             Route::post('employee/delete', 'employeeDeleteRecord')->name('hr/employee/delete');
-            
+
             Route::get('holidays/page', 'holidayPage')->name('hr/holidays/page');
             Route::post('holidays/save', 'holidaySaveRecord')->name('hr/holidays/save');
             Route::post('holidays/delete', 'holidayDeleteRecord')->name('hr/holidays/delete');
-            
+
             Route::get('leave/employee/page', 'leaveEmployee')->name('hr/leave/employee/page');
             Route::get('create/leave/employee/page', 'createLeaveEmployee')->name('hr/create/leave/employee/page');
             Route::post('create/leave/employee/save', 'saveRecordLeave')->name('hr/create/leave/employee/save');
             Route::get('view/detail/leave/employee/{staff_id}', 'viewDetailLeave');
-            
+
             Route::get('leave/hr/page', 'leaveHR')->name('hr/leave/hr/page');
             Route::get('attendance/page', 'attendance')->name('hr/attendance/page');
+
             Route::get('create/leave/hr/page', 'createLeaveHR')->name('hr/create/leave/hr/page');
             Route::post('create/leave/hr/save', 'saveRecordLeaveByHR')->name('hr/create/leave/hr/save');
+
             Route::post('leave/update-status', 'updateLeaveStatus')->name('hr/leave/update-status');
             Route::post('leave/delete', 'deleteLeaveRecord')->name('hr/leave/delete');
 
             Route::post('get/information/leave', 'getInformationLeave')->name('hr/get/information/leave');
-        
+
             Route::get('attendance/main/page', 'attendanceMain')->name('hr/attendance/main/page');
             Route::post('attendance/mark', 'markAttendance')->name('hr/attendance/mark');
+
             Route::get('department/page', 'department')->name('hr/department/page');
             Route::post('department/save', 'saveRecordDepartment')->name('hr/department/save');
             Route::post('department/delete', 'deleteRecordDepartment')->name('hr/department/delete');
         });
+
+        // -------------------------- Account ----------------------//
+
+        Route::get('account', function () {
+
+            $profileDetail = User::where(
+                'email',
+                Session::get('email')
+            )->first();
+
+            return view(
+                'pages.account-profile',
+                compact('profileDetail')
+            );
+
+        })->name('account');
+
+        // -------------------------- Settings ----------------------//
+
+        Route::get('settings', function () {
+            return view('pages.settings');
+        })->name('settings');
+
+        // -------------------------- Maintenance ----------------------//
+
+        Route::get('maintenance', function () {
+            return view('pages.maintenance');
+        })->name('maintenance');
+
     });
+
 });

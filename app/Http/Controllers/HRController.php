@@ -563,11 +563,11 @@ class HRController extends Controller
     public function saveRecordDepartment(Request $request)
     {
         $request->validate([
-            'department'      => 'required|string',
-            'head_of'         => 'required|string',
-            'phone_number'    => 'required|integer',
-            'email'           => 'required|email',
-            'total_employee'  => 'required|integer',
+            'department'      => 'required|string|max:255',
+            'head_of'         => 'required|string|max:255',
+            'phone_number'    => 'required|string|max:20',
+            'email'           => 'required|email|max:255',
+            'total_employee'  => 'required|integer|min:0',
         ]);
     
         try {
