@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\AccountController;
@@ -123,6 +126,50 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('maintenance', function () {
             return view('pages.maintenance');
         })->name('maintenance');
+
+        Route::post('maintenance/clear-cache', function () {
+            Artisan::call('cache:clear');
+            Artisan::call('view:clear');
+            Artisan::call('route:clear');
+            Artisan::call('config:clear');
+
+            flash()->success('System cache cleared successfully :)');
+            return redirect()->route('maintenance');
+        })->name('maintenance.clear-cache');
+
+        Route::post('maintenance/optimize', function () {
+            Artisan::call('optimize:clear');
+            Artisan::call('optimize');
+
+            flash()->success('System optimized successfully :)');
+            return redirect()->route('maintenance');
+        })->name('maintenance.optimize');
+
+        Route::post('maintenance/backup-database', function () {
+            $backupPath = storage_path('app/backups');
+            File::ensureDirectoryExists($backupPath);
+
+            $driver = DB::getDriverName();
+            $tables = $driver === 'sqlite'
+                ? collect(DB::select("select name from sqlite_master where type = 'table' and name not like 'sqlite_%'"))->pluck('name')
+                : collect(DB::select('SHOW TABLES'))->map(fn ($table) => array_values((array) $table)[0]);
+
+            $backup = [
+                'created_at' => now()->toDateTimeString(),
+                'database' => config('database.default'),
+                'tables' => [],
+            ];
+
+            foreach ($tables as $table) {
+                $backup['tables'][$table] = DB::table($table)->get();
+            }
+
+            $fileName = 'database-backup-' . now()->format('Y-m-d-His') . '.json';
+            File::put($backupPath . DIRECTORY_SEPARATOR . $fileName, json_encode($backup, JSON_PRETTY_PRINT));
+
+            flash()->success('Database backup created: ' . $fileName);
+            return redirect()->route('maintenance');
+        })->name('maintenance.backup-database');
 
     });
 

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="page-content">
+<div class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:md:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4">
 
-<div class="container-fluid">
+<div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
 
     <!-- Page Title -->
     <div class="flex items-center justify-between mb-6">
@@ -80,17 +80,26 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                <button class="btn bg-custom-500 text-white">
-                    Clear Cache
-                </button>
+                <form method="POST" action="{{ route('maintenance.clear-cache') }}">
+                    @csrf
+                    <button type="submit" class="w-full btn bg-custom-500 text-white">
+                        Clear Cache
+                    </button>
+                </form>
 
-                <button class="btn bg-yellow-500 text-white">
-                    Optimize System
-                </button>
+                <form method="POST" action="{{ route('maintenance.optimize') }}">
+                    @csrf
+                    <button type="submit" class="w-full btn bg-yellow-500 text-white">
+                        Optimize System
+                    </button>
+                </form>
 
-                <button class="btn bg-red-500 text-white">
-                    Backup Database
-                </button>
+                <form method="POST" action="{{ route('maintenance.backup-database') }}">
+                    @csrf
+                    <button type="submit" class="w-full btn bg-red-500 text-white">
+                        Backup Database
+                    </button>
+                </form>
 
             </div>
 
@@ -111,46 +120,46 @@
                     <tbody>
 
                         <tr>
-                            <td class="py-3 font-medium">
+                            <td class="py-3 font-medium text-slate-700 dark:text-zink-100">
                                 Application Name
                             </td>
-                            <td>
+                            <td class="py-3 text-right text-slate-500 dark:text-zink-200">
                                 HR System
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="py-3 font-medium">
+                            <td class="py-3 font-medium text-slate-700 dark:text-zink-100">
                                 Framework
                             </td>
-                            <td>
-                                Laravel 12
+                            <td class="py-3 text-right text-slate-500 dark:text-zink-200">
+                                Laravel {{ app()->version() }}
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="py-3 font-medium">
+                            <td class="py-3 font-medium text-slate-700 dark:text-zink-100">
                                 PHP Version
                             </td>
-                            <td>
+                            <td class="py-3 text-right text-slate-500 dark:text-zink-200">
                                 {{ PHP_VERSION }}
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="py-3 font-medium">
+                            <td class="py-3 font-medium text-slate-700 dark:text-zink-100">
                                 Database
                             </td>
-                            <td>
-                                MySQL
+                            <td class="py-3 text-right text-slate-500 dark:text-zink-200">
+                                {{ strtoupper(config('database.default')) }}
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="py-3 font-medium">
+                            <td class="py-3 font-medium text-slate-700 dark:text-zink-100">
                                 Environment
                             </td>
-                            <td>
+                            <td class="py-3 text-right text-slate-500 dark:text-zink-200">
                                 {{ app()->environment() }}
                             </td>
                         </tr>
