@@ -4,7 +4,6 @@
 
 <div class="page-content">
 
-```
 <div class="container-fluid">
 
     <!-- Page Title -->
@@ -165,7 +164,6 @@
     </div>
 
 </div>
-```
 
 </div>
 @endsection
