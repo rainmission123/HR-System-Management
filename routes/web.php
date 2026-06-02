@@ -115,6 +115,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         })->name('account');
 
+        Route::post('account/avatar', [AccountController::class, 'updateAvatar'])->name('account.avatar');
+
         // -------------------------- Settings ----------------------//
 
         Route::get('settings', function () {
