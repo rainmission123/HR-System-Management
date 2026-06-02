@@ -1,5 +1,15 @@
 @extends('layouts.master')
 @section('content')
+    @php
+        $profileName = $profileDetail->name ?? Session::get('name') ?? 'N/A';
+        $profileEmail = $profileDetail->email ?? Session::get('email') ?? 'N/A';
+        $profilePosition = $profileDetail->position ?? $profileDetail->designation ?? Session::get('position') ?? 'N/A';
+        $profilePhone = $profileDetail->phone_number ?? Session::get('phone_number') ?? 'N/A';
+        $profileLocation = $profileDetail->location ?? Session::get('location') ?? 'N/A';
+        $profileJoinDate = $profileDetail->join_date ?? Session::get('join_date') ?? 'N/A';
+        $profileWebsite = $profileDetail->website ?? Session::get('website') ?? 'N/A';
+        $profileBirthDate = $profileDetail->birth_date ?? Session::get('birth_date') ?? 'N/A';
+    @endphp
     <!-- Page-content -->
     <div class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">
         <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
@@ -178,7 +188,7 @@
                                     <div class="flex flex-col h-full card-body">
                                         <img src="{{ URL::to('assets/images/medal.png') }}" alt="" class="w-2/6 mx-auto">
                                         <div class="mt-5 mb-auto">
-                                            <h5 class="mb-1 text-white">Congratulation Paula</h5>
+                                            <h5 class="mb-1 text-white">Congratulation {{ $profileName }}</h5>
                                             <p class="text-custom-200">on your outstanding achievement! Your hard work and dedication have truly paid off.</p>
                                         </div>
                                         <div class="p-3 mt-5 rounded-md bg-custom-600">
@@ -208,31 +218,37 @@
                                             <tbody>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Designation</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">Web Developer</td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{ $profilePosition }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Phone No</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">617 219 6245</td>
-                                                </tr>p
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{ $profilePhone }}</td>
+                                                </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Birth of Date</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">15 Dec, 1998</td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{ $profileBirthDate }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Website</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200"><a href="http://HR System.in/" target="_blank" class="text-custom-500">www.HR Systemkh.com</a></td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">
+                                                        @if($profileWebsite !== 'N/A')
+                                                            <a href="{{ $profileWebsite }}" target="_blank" class="text-custom-500">{{ $profileWebsite }}</a>
+                                                        @else
+                                                            {{ $profileWebsite }}
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Email</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">paula@HR System.com</td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{ $profileEmail }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="py-2 font-semibold ps-0" scope="row">Location</th>
-                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">Phnom Penh, Cambodia</td>
+                                                    <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{ $profileLocation }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="pt-2 font-semibold ps-0" scope="row">Joining Date</th>
-                                                    <td class="pt-2 text-right text-slate-500 dark:text-zink-200">01 July 2023</td>
+                                                    <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{ $profileJoinDate }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
