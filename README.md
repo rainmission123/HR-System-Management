@@ -1,3 +1,7 @@
+# HR System Management
+
+A modern Human Resource Management System built with Laravel 12, PHP 8.2, MySQL, Blade, Tailwind CSS, and JavaScript.
+
 <img width="1536" height="1024" alt="Laravel Guide" src="https://github.com/user-attachments/assets/6969c56c-197f-4e77-abf5-ff67336f3efd" />
 
 ## Features
