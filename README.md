@@ -20,7 +20,7 @@
 - JavaScript
 
 ## Installation
-
+```bash
 git clone https://github.com/rainmission123/HR-System-Management.git
 
 cd HR-System-Management
@@ -38,3 +38,4 @@ php artisan migrate
 npm run dev
 
 php artisan serve
+```
