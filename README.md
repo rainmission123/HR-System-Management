@@ -23,12 +23,18 @@
 
 git clone https://github.com/rainmission123/HR-System-Management.git
 
+cd HR-System-Management
+
 composer install
 
-cp .env.example .env
+copy .env.example .env
 
 php artisan key:generate
 
+npm install
+
 php artisan migrate
+
+npm run dev
 
 php artisan serve
