@@ -1,6 +1,4 @@
-# HR System Management
-
-Laravel 12 Human Resource Management System
+<img width="1536" height="1024" alt="Laravel Guide" src="https://github.com/user-attachments/assets/6969c56c-197f-4e77-abf5-ff67336f3efd" />
 
 ## Features
 
@@ -33,5 +31,4 @@ php artisan key:generate
 
 php artisan migrate
 
-php artisan serve# Laravel-12-HR-System-Management
-Laravel-12-HR-System-Management
+php artisan serve
