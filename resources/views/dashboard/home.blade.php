@@ -546,7 +546,7 @@
                                                 <h6 class="mb-0">Christopher Horn</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$145.32</h6>
+                                                <h6>₱145.32</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Paid</span>
@@ -560,7 +560,7 @@
                                                 <h6 class="mb-0">Richard Peters</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$4512.99</h6>
+                                                <h6>₱4512.99</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-yellow-100 border-transparent text-yellow-500 dark:bg-yellow-500/20 dark:border-transparent">Pending</span>
@@ -574,7 +574,7 @@
                                                 <h6 class="mb-0">James Perez</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$879.99</h6>
+                                                <h6>₱879.99</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Paid</span>
@@ -588,7 +588,7 @@
                                                 <h6 class="mb-0">Myrtle Velez</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$978.14</h6>
+                                                <h6>₱978.14</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent">Cancelled</span>
@@ -616,7 +616,7 @@
                                                 <h6 class="mb-0">Robert Jump</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$666.99</h6>
+                                                <h6>₱666.99</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Paid</span>
@@ -630,7 +630,7 @@
                                                 <h6 class="mb-0">Myrtle Velez</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$978.14</h6>
+                                                <h6>₱978.14</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent">Cancelled</span>
@@ -644,7 +644,7 @@
                                                 <h6 class="mb-0">Christopher Horn</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$145.32</h6>
+                                                <h6>₱145.32</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Paid</span>
@@ -658,7 +658,7 @@
                                                 <h6 class="mb-0">Richard Peters</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$4512.99</h6>
+                                                <h6>₱4512.99</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-yellow-100 border-transparent text-yellow-500 dark:bg-yellow-500/20 dark:border-transparent">Pending</span>
@@ -672,7 +672,7 @@
                                                 <h6 class="mb-0">James Perez</h6>
                                             </div>
                                             <div class="shrink-0">
-                                                <h6>$879.99</h6>
+                                                <h6>₱879.99</h6>
                                             </div>
                                             <div class="w-20 ltr:text-right rtl:text-left shrink-0">
                                                 <span class="px-2.5 py-0.5 inline-block text-[11px] font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">Paid</span>
