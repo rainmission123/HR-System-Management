@@ -1,6 +1,8 @@
 # HR System Management
 
-Laravel 12 Human Resource Management System
+A modern Human Resource Management System built with Laravel 12, PHP 8.2, MySQL, Blade, Tailwind CSS, and JavaScript.
+
+<img width="1536" height="1024" alt="Laravel Guide" src="https://github.com/user-attachments/assets/6969c56c-197f-4e77-abf5-ff67336f3efd" />
 
 ## Features
 
@@ -22,16 +24,22 @@ Laravel 12 Human Resource Management System
 - JavaScript
 
 ## Installation
-
+```bash
 git clone https://github.com/rainmission123/HR-System-Management.git
+
+cd HR-System-Management
 
 composer install
 
-cp .env.example .env
+copy .env.example .env
 
 php artisan key:generate
 
+npm install
+
 php artisan migrate
 
-php artisan serve# Laravel-12-HR-System-Management
-Laravel-12-HR-System-Management
+npm run dev
+
+php artisan serve
+```
